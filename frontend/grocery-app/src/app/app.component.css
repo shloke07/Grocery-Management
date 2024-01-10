@@ -1,0 +1,71 @@
+.container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  td{
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    color: #333;
+  }
+
+  .example-card{
+    margin: 5px;
+    background-color:#f2e8cf;
+    border: 5px;
+    border-color: #333;
+}
+  .example-card1{
+    margin: 5px;
+    background-color:#f2e8cf;
+    border: 5px;
+    border-color: #333;
+}
+
+.outer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.outer1{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

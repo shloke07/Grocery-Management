@@ -65,6 +65,8 @@ db.getConnection((err, connection) => {
 // });
 
 app.post('/addItems', async (req, res) => {
+    res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
+
     const items = req.body; // Expecting an array of items
 
     // Extract all item IDs
@@ -104,6 +106,7 @@ app.post('/addItems', async (req, res) => {
 
 //Route to Get all items from inventory 
 app.get('/getItems', (req,res) => {
+    res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
     const query = 'SELECT * FROM grocery';
     db.query(query, (error, results) => {
         if (error) {
