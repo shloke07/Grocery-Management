@@ -4,8 +4,6 @@ const mysql = require('mysql');
 const http = require('http');
 
 
-const server = http.createServer();
-
 const app = express();
 app.use(bodyParser.json());
 
