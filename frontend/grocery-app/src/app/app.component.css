@@ -1,62 +1,95 @@
 .container {
     margin: 20px;
     font-family: Arial, sans-serif;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  table, th, td {
-    border: 1px solid #ddd;
-  }
-  
-  th, td {
-    padding: 8px;
-    text-align: left;
-  }
-  td{
-    text-align: center;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  h2 {
-    color: #333;
-  }
-
-  .example-card{
-    margin: 5px;
-    background-color:#f2e8cf;
-    border: 5px;
-    border-color: #333;
 }
-  .example-card1{
+
+
+.h2 {
+    color: #f9f9f9;
+}
+
+/* .example-card {
     margin: 5px;
-    background-color:#f2e8cf;
+    background-color: #f2e8cf;
     border: 5px;
     border-color: #333;
 }
 
-.outer{
+.outer {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.outer1{
+} */
+.outer,
+.outer1 {
     display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
     flex-wrap: wrap;
-    align-content: stretch;
-    align-items: center;
+    /* Allows cards to wrap to the next line */
+    align-items: flex-start;
+    /* Aligns items at the start of the container */
+    justify-content: center;
+    /* Centers the items horizontally */
+    gap: 20px;
+    /* Adds space between cards */
+    padding: 20px;
+    /* Adds padding around the outer container */
+}
+
+.example-card,
+.example-card1 {
+    width: 300px;
+    /* Sets a fixed width for each card */
+    background-color: #f9f9f9;
+    /* Light background color for the card */
+    border: 1px solid #ddd;
+    /* Adds a subtle border */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* Adds a shadow for depth */
+    transition: 0.3s;
+    /* Smooth transition for hover effect */
+    border-radius: 8px;
+    /* Rounded corners */
+}
+
+.example-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    /* Larger shadow on hover for a lifting effect */
+}
+
+.example-card1:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+    /* Larger shadow on hover for a lifting effect */
+}
+
+.mat-card-header {
+    background-color: #333;
+    /* Dark background for the header */
+    color: white;
+    /* White text for contrast */
+    border-top-left-radius: 8px;
+    /* Rounded corners on the top */
+    border-top-right-radius: 8px;
+}
+
+.mat-card-title,
+.mat-card-subtitle {
+    color: #fff;
+    /* Ensures text in the header is white */
+}
+
+.mat-card-content {
+    padding: 15px;
+    /* Padding inside the card content */
+    color: #333;
+    /* Darker text for better readability */
+}
+
+.mdc-card__actions {
+    /* padding: 10px 15px; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
 
 }
 
@@ -64,8 +97,8 @@
     min-width: 150px;
     max-width: 500px;
     width: 100%;
-  }
-  
-  .example-full-width {
+}
+
+.example-full-width {
     width: 100%;
-  }
+}

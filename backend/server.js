@@ -2,10 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const http = require('http');
+const cors = require('cors');
 
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 // app.get('/', (req, res) => {
 //     res.sendFile(__dirname + '/public/index.html');
@@ -65,27 +67,27 @@ db.getConnection((err, connection) => {
 // });
 
 app.post('/addItems', async (req, res) => {
-    res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
+    // res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
 
     const items = req.body; // Expecting an array of items
 
     // Extract all item IDs
-    const itemIds = items.map(item => item.item_id);
+    const itemNames = items.map(item => item.item_name);
 
     // Check if any of the items already exist
-    const existingItemsQuery = 'SELECT item_id FROM grocery WHERE item_id IN (?)';
-    db.query(existingItemsQuery, [itemIds], (error, results) => {
+    const existingItemsQuery = 'SELECT item_name FROM grocery WHERE item_name IN (?)';
+    db.query(existingItemsQuery, [itemNames], (error, results) => {
         if (error) {
             return res.status(500).send({ success: false, message: 'Error querying the database', error });
         }
 
-        const existingItemIds = new Set(results.map(item => item.item_id));
+        const existingItemIds = new Set(results.map(item => item.item_name));
 
         // Filter out items that already exist
-        const newItems = items.filter(item => !existingItemIds.has(item.item_id));
+        const newItems = items.filter(item => !existingItemIds.has(item.item_name));
 
         if (newItems.length === 0) {
-            return res.status(400).send({ success: false, message: 'All items already exist' });
+            return res.status(200).send({ success: false, message: 'All items already exist' });
         }
 
         // Prepare bulk insert data
@@ -106,7 +108,7 @@ app.post('/addItems', async (req, res) => {
 
 //Route to Get all items from inventory 
 app.get('/getItems', (req,res) => {
-    res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
+    // res.set('Access-Control-Allow-Origin', 'http://localhost:4200');
     const query = 'SELECT * FROM grocery';
     db.query(query, (error, results) => {
         if (error) {
