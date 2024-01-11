@@ -17,7 +17,7 @@ A simple Angular-Node based app to add and fetch grocery items.
 
 3. Run the server on port 3000 (use command `npm run start` in backend/ directory)
 
-4. Launch the Angular app (use command `ng serve` frontend/Grocery-app/ directory)
+4. Launch the Angular app on port 4200 (use command `ng serve` frontend/Grocery-app/ directory)
 
 5. Navigate to `http://localhost:4200/` in your browser.
 
