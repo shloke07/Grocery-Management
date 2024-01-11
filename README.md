@@ -29,6 +29,10 @@ A simple Angular-Node based app to add and fetch grocery items.
 - Fetch all items from Inventory (database). (`/getItems`)
 - View the fetched grocery items.  
 
+## FAQ
+
+- Make sure to configure proxy.conf.json file if you are running the servers on any other ports than specified.
+- `/addItems` endpoint prevents adding items already existing in the inventory and is CASE SENSITIVE. So `Apples` and `apples` are considered different items.
 
 
 ## License
